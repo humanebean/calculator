@@ -14,23 +14,19 @@ const sum = function(arr) {
 	return sum
 };
 
-const multiply = function(arr) {
-  if(arr.length==0){return 0}
-  const product=arr.reduce((total,i)=>{
-    return (total*i)
-  })
-	return product
+const multiply = function(num1,num2) {
+  return num1*num2
 };
 
-const power = function(num1,num2) {
-  let prod=num1
-	for(let i=1;i<num2;i++){
-    prod=prod*num1
-  }
-  return prod
+const divide = function(num1,num2) {
+  return num1/num2
 };
-const equals = function(num1,num2,opp){
-    if(opp=='add'){return( add(num1,num2))}
+
+const equals = function(num1,num2,op){
+    if(op=='add'){return( add(num1,num2))}
+    if(op=='subtract'){return(subtract(num1,num2))}
+    if(op=='multiply'){return(multiply(num1,num2))}
+    if(op=='divide'){return(divide(num1,num2))}
 }
 curNum=""
 num1=-999
@@ -52,6 +48,24 @@ let addition=document.querySelector("#add")
 addition.addEventListener('click',()=>{
     curNum=""
     op='add'
+})
+
+let subtraction=document.querySelector("#subtract")
+subtraction.addEventListener('click',()=>{
+    curNum=""
+    op='subtract'
+})
+
+let mult=document.querySelector("#multiply")
+mult.addEventListener('click',()=>{
+    curNum=""
+    op='multiply'
+})
+
+let div=document.querySelector("#divide")
+div.addEventListener('click',()=>{
+    curNum=""
+    op='divide'
 })
 
 let equal=document.querySelector("#equals")
