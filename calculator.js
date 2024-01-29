@@ -29,8 +29,8 @@ const equals = function(num1,num2,op){
     if(op=='divide'){return(divide(num1,num2))}
 }
 curNum=""
-num1=-999
-num2=-999
+num1=-NaN
+num2=-NaN
 op="none"
 let screen=document.querySelector("#screen")
 let digits=document.querySelector("#digits")
@@ -49,32 +49,59 @@ for (let i=0;i<digit.length;i++){
 let addition=document.querySelector("#add")
 addition.addEventListener('click',()=>{
     curNum=""
+    if(op!='none'){
+        num1=(equals(num1,num2,op))
+        screen.textContent=(num1)
+    }
     op='add'
 })
 
 let subtraction=document.querySelector("#subtract")
 subtraction.addEventListener('click',()=>{
     curNum=""
+    if(op!='none'){
+        num1=(equals(num1,num2,op))
+        screen.textContent=(num1)
+    }
     op='subtract'
 })
 
 let mult=document.querySelector("#multiply")
 mult.addEventListener('click',()=>{
     curNum=""
+    if(op!='none'){
+        num1=(equals(num1,num2,op))
+        screen.textContent=(num1)
+    }
     op='multiply'
 })
 
 let div=document.querySelector("#divide")
 div.addEventListener('click',()=>{
     curNum=""
+    if(op!='none'){
+        num1=(equals(num1,num2,op))
+        screen.textContent=(num1)
+    }
     op='divide'
 })
 
+let clear=document.querySelector("#clear")
+clear.addEventListener('click',()=>{
+    curNum=""
+    op='none'
+    screen.textContent=""
+    num1=NaN
+    num2=NaN
+    
+})
 let equal=document.querySelector("#equals")
 equal.addEventListener('click',()=>{
-    num1=(equals(num1,num2,op))
-    screen.textContent=(num1)
-    op='none'
-    curNum=""
+    if(num1!=NaN && num2!=NaN){
+        num1=(equals(num1,num2,op))
+        screen.textContent=(num1)
+        op='none'
+        curNum=""
+    }
 
 })
