@@ -32,12 +32,14 @@ curNum=""
 num1=-999
 num2=-999
 op="none"
+let screen=document.querySelector("#screen")
 let digits=document.querySelector("#digits")
 let digit=digits.children
 for (let i=0;i<digit.length;i++){
     digit[i].addEventListener('click',()=>{
         
             curNum=curNum+digit[i].textContent
+            screen.textContent=curNum
         if(op=="none"){
             num1=Number(curNum)
         }
@@ -71,7 +73,7 @@ div.addEventListener('click',()=>{
 let equal=document.querySelector("#equals")
 equal.addEventListener('click',()=>{
     num1=(equals(num1,num2,op))
-    alert(num1)
+    screen.textContent=(num1)
     op='none'
     curNum=""
 
