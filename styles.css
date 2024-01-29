@@ -1,0 +1,6 @@
+#screen{
+    background-color: darkgrey;
+    min-width: 50px;
+    max-width: 250px;
+    min-height: 25px;
+}
